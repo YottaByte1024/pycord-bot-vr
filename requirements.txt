@@ -1,0 +1,4 @@
+py-cord
+python-dotenv
+tortoise-orm
+PyNaCl
