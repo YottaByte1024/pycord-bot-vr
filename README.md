@@ -27,6 +27,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### Configuring the bot
+
+config.py example:
+```python
+config = {
+    'debug_guilds': [980510954733, 5423978095493],
+    'owner_id': 1092357754334
+}
+```
+
 ### Starting the bot
 
 For Linux:
@@ -39,4 +49,4 @@ python main.py
 
 For Linux:
 
-To stop the bot, press Ctrl+C twice
+> To stop the bot, press Ctrl+C twice
