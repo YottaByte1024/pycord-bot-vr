@@ -29,6 +29,8 @@ pip install -r requirements.txt
 
 ### Configuring the bot
 
+Add a config.py file to the root of the project.
+
 config.py example:
 ```python
 config = {
