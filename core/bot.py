@@ -26,7 +26,7 @@ class VRBot(commands.Bot):
             ),
             # allowed_mentions=discord.AllowedMentions.none(),
             # chunk_guilds_at_startup=False,
-            # help_command=,
+            help_command=None,
             intents=discord.Intents(
                 members=True,
                 messages=True,
@@ -47,6 +47,7 @@ class VRBot(commands.Bot):
             'cogs.greetings',
             'cogs.settings',
             'cogs.anon',
+            'cogs.translation',
             # 'cogs.record'
         ]:
             print(cog)

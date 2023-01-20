@@ -17,7 +17,7 @@ class Settings(BaseCog):
                             )
     @commands.has_permissions(administrator=True)
     async def change_free_roles(self, ctx: discord.ApplicationContext,
-                                action: Option(str, choices=['add', 'delete', 'change']),
+                                action: Option(str, choices=['add', 'delete', 'change'], required=True),
                                 role: Option(discord.Role, required=True, name='role'),
                                 desc: Option(str, required=False, name='description')):
         # await ctx.defer()
@@ -76,7 +76,7 @@ class Settings(BaseCog):
                             )
     @commands.has_permissions(administrator=True)
     async def change_roles(self, ctx: discord.ApplicationContext,
-                           kind: Option(str, choices=['rules', 'adult']),
+                           kind: Option(str, choices=['rules', 'adult'], required=True),
                            role: Option(discord.Role, required=True, name='role')):
         # await ctx.defer()
 
@@ -134,7 +134,7 @@ class Settings(BaseCog):
                             )
     @commands.has_permissions(administrator=True)
     async def change_channels(self, ctx: discord.ApplicationContext,
-                              kind: Option(str, choices=['rules', 'bot']),
+                              kind: Option(str, choices=['rules', 'bot'], required=True),
                               channel: Option(discord.TextChannel, required=True, name='channel')):
         # await ctx.defer()
 

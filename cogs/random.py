@@ -16,8 +16,8 @@ class Random(BaseCog):
     )
     async def randint(self,
                       ctx: discord.ApplicationContext,
-                      first_num: Option(int, "Первое число", required=True, default=0),
-                      second_num: Option(int, "Второе число", required=True, default=1)
+                      first_num: Option(int, "Первое число", required=False, default=0),
+                      second_num: Option(int, "Второе число", required=False, default=1)
                       ):
         await ctx.respond("Ваше случайное число: " + str(rm.randint(first_num, second_num)))
 

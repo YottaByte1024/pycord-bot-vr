@@ -7,7 +7,7 @@ from discord.commands import Option
 
 class TestCog(BaseCog):
     @commands.slash_command(
-        guild_ids=config.debug_guilds,
+        guild_ids=config['debug_guilds'],
     )
     async def test_command(self, ctx: discord.ApplicationContext):
 

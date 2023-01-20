@@ -4,6 +4,7 @@ from tortoise.models import Model
 # __models__ = ('User', 'Role', 'Channel', 'Guild')
 __all__ = ('User', 'Role', 'Channel', 'Guild')
 
+
 class BaseModel(Model):
     class Meta:
         abstract = True
@@ -51,7 +52,6 @@ class Guild(Model):
     id = fields.BigIntField(pk=True)
 
     roles: fields.ReverseRelation["Role"]
-
 
     def __str__(self):
         return self.id

@@ -9,7 +9,7 @@ from asyncio import sleep
 class Magic8ball(BaseCog):
     """Команды Magic 8ball"""
 
-    magicball = SlashCommandGroup("magic8ball", "description")
+    magicball = SlashCommandGroup("magic", "description")
 
     @magicball.command(
         name="yes_or_no",
