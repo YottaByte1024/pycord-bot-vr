@@ -48,6 +48,7 @@ class VRBot(commands.Bot):
             'cogs.settings',
             'cogs.anon',
             'cogs.translation',
+            'cogs.layout_switcher',
             # 'cogs.record'
         ]:
             print(cog)
