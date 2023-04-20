@@ -31,6 +31,15 @@ class Translation(BaseCog):
         except:
             await ctx.respond(f"Произошла ошибка, попробуйте снова", ephemeral=True)
 
+    @commands.message_command(name="Translate to CZ",)
+    async def message_translate_ru(self, ctx: discord.ApplicationContext, message: discord.Message):
+        try:
+            translator = Translator()
+            result = translator.translate(message.content, dest="cs")
+            await ctx.respond(f"[{result.src} -> cz] {result.text}", ephemeral=True)
+        except:
+            await ctx.respond(f"Произошла ошибка, попробуйте снова", ephemeral=True)
+
 
 def setup(bot):
     bot.add_cog(Translation(bot))
