@@ -32,6 +32,7 @@ pip install -r requirements.txt
 Add a config.py file to the root of the project.
 
 config.py example:
+
 ```python
 config = {
     'debug_guilds': [980510954733, 5423978095493],
@@ -44,6 +45,7 @@ config = {
 For Linux:
 
 ```sh
+source venv/bin/activate
 python main.py
 ```
 
