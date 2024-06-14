@@ -1,0 +1,13 @@
+services:
+  bot:
+    build:
+      context: .
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/data
+        bind:
+          create_host_path: true

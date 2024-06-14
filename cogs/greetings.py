@@ -38,7 +38,8 @@ class Greetings(BaseCog):
     async def on_member_join(self, member: discord.Member):
         rules_channel = await Channel.get_or_none(guild_id=member.guild.id, rules_channel=True)
         if rules_channel is not None:
-            rules_chat = discord.utils.get(member.guild.channels, id=rules_channel.id)
+            rules_chat = discord.utils.get(
+                member.guild.channels, id=rules_channel.id)
             rules_chat_mention = rules_chat.mention
         else:
             rules_chat_mention = "<Канал не найден (узнайте у администрации сервера)>"
@@ -64,33 +65,38 @@ class Greetings(BaseCog):
         role_q = await Role.get_or_none(guild_id=member.guild.id, resident_role=True)
         if role_q is not None:
             role = member.guild.get_role(role_q.id)
-            view.add_item(Button(role, member.guild, member, discord.ButtonStyle.green))
+            view.add_item(Button(role, member.guild, member,
+                          discord.ButtonStyle.green))
         elif not dm_ex:
             await dm.send(not_found.format(role_name='для согласившегося с правилами'))
         else:
             await member.guild.get_channel(bot_channel).send(
-                not_found.format(role_name='для согласившегося с правилами'))
+                not_found.format(role_name='для согласившегося с правилами'),
+            )
 
         # Create button for adults
         role_q = await Role.get_or_none(guild_id=member.guild.id, adult_role=True)
         if role_q is not None:
             role18 = member.guild.get_role(role_q.id)
-            view.add_item(Button(role18, member.guild, member, discord.ButtonStyle.blurple))
+            view.add_item(Button(role18, member.guild, member,
+                          discord.ButtonStyle.blurple))
         elif not dm_ex:
             await dm.send(not_found.format(role_name='для 18-летних'))
         else:
             await member.guild.get_channel(bot_channel).send(
                 not_found.format(role_name='для 18-летних'))
 
-        embed = discord.Embed(title="Welcome!", type='article', color=discord.Color.red(),
-                              description=f"Привет, {member.mention}!\n"
-                                          f"Если хочешь стать резидентом, согласись с правилами:\n"
-                                          f"{rules_chat_mention}\n"
-                                          f"Для этого нажми на зеленую кнопку ниже (первая).\n"
-                                          f"Если тебе есть 18 лет, нажми на синюю кнопку (вторая).\n"
-                                          f"(Сможешь видеть историю сообщений)"
-                                          f"Также у тебя есть доступ к некоторым ролям по команде:\n"
-                                          f"/roles (доступна на сервере)", )
+        embed = discord.Embed(
+            title="Welcome!", type='article', color=discord.Color.red(),
+            description=f"Привет, {member.mention}!\n"
+            f"Если хочешь стать резидентом, согласись с правилами:\n"
+            f"{rules_chat_mention}\n"
+            f"Для этого нажми на зеленую кнопку ниже (первая).\n"
+            f"Если тебе есть 18 лет, нажми на синюю кнопку (вторая).\n"
+            f"(Сможешь видеть историю сообщений)"
+            f"Также у тебя есть доступ к некоторым ролям по команде:\n"
+            f"/roles (доступна на сервере)",
+        )
 
         if not dm_ex:
             await dm.send(embed=embed, view=view)
@@ -112,14 +118,17 @@ class Greetings(BaseCog):
         await self.bot.sync_commands()
 
         embed = discord.Embed(title="Здравствуйте всем!",
-                              description=message,
-                              color=discord.Color.blue())
-        embed.add_field(name="Настройка",
-                        value="Для настройки бота воспользуйтесь группой команд /settings",
-                        inline=False)
-        embed.add_field(name="Совет",
-                        value="Для работы с ролями роль бота должна быть выше этих ролей",
-                        inline=False)
+                              description=message, color=discord.Color.blue())
+        embed.add_field(
+            name="Настройка",
+            value="Для настройки бота воспользуйтесь группой команд /settings",
+            inline=False,
+        )
+        embed.add_field(
+            name="Совет",
+            value="Для работы с ролями роль бота должна быть выше этих ролей",
+            inline=False,
+        )
         await guild.system_channel.send('', embed=embed)
 
     @commands.Cog.listener()

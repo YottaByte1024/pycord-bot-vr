@@ -7,11 +7,11 @@ from discord.commands import Option
 class Anon(BaseCog):
     """Команды для отправки сообщений анонимно"""
 
-    @commands.slash_command(name='anon_send',
-                            description='Отправляет сообщение анонимно',
-                            guild_only=True,
-                            # guild_ids=[805195595038851083, ]
-                            )
+    @commands.slash_command(
+        name='anon_send',
+        description='Отправляет сообщение анонимно',
+        guild_only=True,
+    )
     async def anon_send(self, ctx: discord.ApplicationContext,
                         text: discord.Option(str, required=True),
                         user: discord.Option(discord.User, required=False)):

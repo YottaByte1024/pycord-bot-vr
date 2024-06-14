@@ -48,10 +48,11 @@ class RoleButton(discord.ui.Button):
 class FreeRoles(BaseCog):
     """Команды для получения ролей"""
 
-    @commands.slash_command(name="roles",
-                            # guild_ids=[805195595038851083, ],
-                            description="Показывает доступные роли")
-    async def free_roles(self, ctx: commands.Context):
+    @commands.slash_command(
+        name="roles",
+        description="Показывает доступные роли",
+    )
+    async def free_roles(self, ctx):
         view = discord.ui.View(timeout=None)
 
         free_roles = list(await Role.filter(guild_id=ctx.guild.id, free_role=True))
